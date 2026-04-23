@@ -2,8 +2,9 @@ import { useState, useEffect, useRef } from "react";
 import { motion, useInView, useAnimation, AnimatePresence } from "framer-motion";
 import motorImg from "./assets/MotorInsurancep1.png";
 import hrImg from "./assets/HR.png";
-import travImg from "./assets/TravelInsurancep1.png";
+import travmotImg from "./assets/MotorTravel.png";
 import healImg from "./assets/HealthInsurance.png";
+import lifeImg from "./assets/Life.png";
 
 /* ─────────────────────────────────────────────
    THEME & GLOBAL DATA
@@ -63,30 +64,30 @@ const PROJECTS = [
   //   category: "React",
   //   status: "In Progress",
   // },
-  {
-    id: 1,
-    title: "Insurance Management System",
-    subtitle: "Enterprise Oracle APEX Platform",
-    description:
-      "End-to-end insurance operations platform built on Oracle APEX. Covers policy issuance, claims processing, premium calculations, customer management, and regulatory reporting for an insurance company.",
-    longDescription:
-      "Architected the entire database schema and business logic layer using PL/SQL packages. Implemented complex insurance calculation engines and automated workflows for claims adjudication.",
-    tech: ["Oracle APEX", "PL/SQL", "Oracle DB", "ORDS", "JavaScript"],
-    features: [
-      "Policy lifecycle management (issue/renew/cancel)",
-      "Automated premium calculation engine",
-      "Claims intake and adjudication workflow",
-      "Reinsurance treaty management",
-      "Regulatory compliance reports",
-      "Customer portal with self-service",
-    ],
-    color: "#F5A623",
-    github: "#",
-    demo: "#",
-    category: "Oracle APEX",
-    status: "Completed",
-    
-  },
+  // {
+  //   id: 1,
+  //   title: "Insurance Management System",
+  //   subtitle: "Enterprise Oracle APEX Platform",
+  //   description:
+  //     "End-to-end insurance operations platform built on Oracle APEX. Covers policy issuance, claims processing, premium calculations, customer management, and regulatory reporting for an insurance company.",
+  //   longDescription:
+  //     "Architected the entire database schema and business logic layer using PL/SQL packages. Implemented complex insurance calculation engines and automated workflows for claims adjudication.",
+  //   tech: ["Oracle APEX", "PL/SQL", "Oracle DB", "ORDS", "JavaScript"],
+  //   features: [
+  //     "Policy lifecycle management (issue/renew/cancel)",
+  //     "Automated premium calculation engine",
+  //     "Claims intake and adjudication workflow",
+  //     "Reinsurance treaty management",
+  //     "Regulatory compliance reports",
+  //     "Customer portal with self-service",
+  //   ],
+  //   color: "#F5A623",
+  //   github: "#",
+  //   demo: "#",
+  //   category: "Oracle APEX",
+  //   status: "Completed"//,
+  //   //image: lifeImg
+  // },
   // {
   //   id: 3,
   //   title: "Point of Sale System",
@@ -133,8 +134,7 @@ const PROJECTS = [
     demo: "#",
     category: "Oracle APEX",
     status: "Completed",
-    image: "image: travImg,",
-
+    image: travmotImg,
   },
   {
     id: 3,
@@ -158,7 +158,7 @@ const PROJECTS = [
     demo: "#",
     category: "Oracle APEX",
     status: "Completed",
-    image: "image: healImg,",
+    image: lifeImg,
   },
   {
     id: 4,
@@ -182,7 +182,7 @@ const PROJECTS = [
     demo: "#",
     category: "Oracle APEX",
     status: "Completed",
-    image: "image: healImg,",
+    image: healImg,
   },
 
 ];
