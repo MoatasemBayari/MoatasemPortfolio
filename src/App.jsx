@@ -1630,8 +1630,8 @@ const handleSubmit = (e) => {
   e.preventDefault();
 
   emailjs.send(
-    "service_cjk7fh3",
-    "template_mk05nfl",
+    "service_4m2l5jd",
+    "template_zzezcy8",
     {
       from_name: form.name,
       from_email: form.email,
