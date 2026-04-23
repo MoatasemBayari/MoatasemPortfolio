@@ -2014,7 +2014,7 @@ export default function App() {
         <Skills />
         <Projects />
         <Experience />
-        <Contact />
+        {/* <Contact /> */}
       </main>
       <Footer />
       <ScrollToTop />
