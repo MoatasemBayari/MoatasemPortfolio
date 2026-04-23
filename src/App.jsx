@@ -1745,7 +1745,7 @@ const handleSubmit = (e) => {
               padding: "36px",
             }}
           >
-            <AnimatePresence mode="wait">
+            {/* <AnimatePresence mode="wait"> */}
               {sent ? (
                 <motion.div
                   key="success"
@@ -1883,7 +1883,7 @@ const handleSubmit = (e) => {
                </form> 
               //  </motion.div>
               )}
-            </AnimatePresence>
+            {/* </AnimatePresence> */}
           </div>
         </FadeInSection>
       </div>
