@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, useInView, useAnimation, AnimatePresence } from "framer-motion";
+import emailjs from "@emailjs/browser";
 import motorImg from "./assets/MotorInsurancep1.png";
 import hrImg from "./assets/HR.png";
 import travmotImg from "./assets/MotorTravel.png";
@@ -1612,16 +1613,41 @@ const Experience = () => (
 /* ─────────────────────────────────────────────
    CONTACT
 ───────────────────────────────────────────── */
-const Contact = () => {
+// const Contact = () => {
+//   const [form, setForm] = useState({ name: "", email: "", message: "" });
+//   const [sent, setSent] = useState(false);
+const ContactSection = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [sent, setSent] = useState(false);
 
-  const handleSubmit = () => {
-    if (!form.name || !form.email || !form.message) return;
-    setSent(true);
-    setTimeout(() => setSent(false), 4000);
-    setForm({ name: "", email: "", message: "" });
-  };
+  // const handleSubmit = () => {
+  //   if (!form.name || !form.email || !form.message) return;
+  //   setSent(true);
+  //   setTimeout(() => setSent(false), 4000);
+  //   setForm({ name: "", email: "", message: "" });
+  // };
+const handleSubmit = (e) => {
+  e.preventDefault();
+
+  emailjs.send(
+    "service_cjk7fh3",
+    "template_mk05nfl",
+    {
+      from_name: form.name,
+      from_email: form.email,
+      message: form.message,
+    },
+    "E4cExxnzw10BvfJV1"
+  ).then(
+    () => {
+      setSent(true);
+      setForm({ name: "", email: "", message: "" });
+    },
+    (error) => {
+      console.log("FAILED...", error);
+    }
+  );
+};
 
   const inputStyle = {
     width: "100%",
@@ -1669,9 +1695,9 @@ const Contact = () => {
             </p>
 
             {[
-              { icon: "✉️", label: "Email", value: "Mo3tasembayariwork@gmail.com", href: "mailto:your.email@example.com" },
-              { icon: "💼", label: "LinkedIn", value: "linkedin.com/in/yourprofile", href: "#" },
-              { icon: "🐙", label: "GitHub", value: "github.com/yourusername", href: "#" },
+              { icon: "✉️", label: "Email", value: "Mo3tasembayariwork@gmail.com", href: "mailto:Mo3tasembayariwork@gmail.com" },
+              { icon: "💼", label: "LinkedIn", value: "linkedin.com/in/moatasem-bayari/", href: "https://linkedin.com/in/moatasem-bayari/" },
+              { icon: "🐙", label: "GitHub", value: "github.com/MoatasemBayari", href: "https://github.com/MoatasemBayari" },
             ].map((item) => (
               <motion.a
                 key={item.label}
@@ -1743,7 +1769,8 @@ const Contact = () => {
                   </p>
                 </motion.div>
               ) : (
-                <motion.div key="form" initial={{ opacity: 1 }}>
+                <form onSubmit={handleSubmit}>
+                {/* <motion.div key="form" initial={{ opacity: 1 }}> */}
                   <div style={{ marginBottom: 20 }}>
                     <label
                       style={{
@@ -1813,7 +1840,7 @@ const Contact = () => {
                       style={{ ...inputStyle, resize: "vertical" }}
                     />
                   </div>
-                  <motion.button
+                  {/* <motion.button
                     onClick={handleSubmit}
                     whileHover={{ scale: 1.02, boxShadow: `0 0 24px rgba(0,212,255,0.3)` }}
                     whileTap={{ scale: 0.98 }}
@@ -1830,10 +1857,31 @@ const Contact = () => {
                       cursor: "pointer",
                       letterSpacing: 2,
                     }}
-                  >
-                    SEND MESSAGE →
-                  </motion.button>
-                </motion.div>
+                  > */}
+                  <motion.button
+                      type="submit"
+                      whileHover={{ scale: 1.02, boxShadow: `0 0 24px rgba(0,212,255,0.3)` }}
+                      whileTap={{ scale: 0.98 }}
+                      style={{
+                        width: "100%",
+                        padding: "14px",
+                        background: COLORS.accent,
+                        border: "none",
+                        borderRadius: 8,
+                        color: "#000",
+                        fontFamily: "'Space Mono', monospace",
+                        fontWeight: 700,
+                        fontSize: 13,
+                        cursor: "pointer",
+                        letterSpacing: 2,
+                      }}
+                    >
+                      SEND MESSAGE →
+                    </motion.button>
+                    {/* SEND MESSAGE →
+                  </motion.button> */}
+               </form> 
+              //  </motion.div>
               )}
             </AnimatePresence>
           </div>
