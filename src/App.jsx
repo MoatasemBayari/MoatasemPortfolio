@@ -6,7 +6,7 @@ import hrImg from "./assets/HR.png";
 import travmotImg from "./assets/MotorTravel.png";
 import healImg from "./assets/HealthInsurance.png";
 import lifeImg from "./assets/Life.png";
-import ContactSection from "./Contact";
+// import ContactSection from "./Contact";
 /* ─────────────────────────────────────────────
    THEME & GLOBAL DATA
 ───────────────────────────────────────────── */
@@ -1898,7 +1898,7 @@ const ScrollToTop = () => {
 /* ─────────────────────────────────────────────
    APP ROOT
 ───────────────────────────────────────────── */
-export default ContactSection;
+// export default ContactSection;
 export default function App() {
   return (
     <div
@@ -1936,7 +1936,6 @@ export default function App() {
         <Skills />
         <Projects />
         <Experience />
-        {/* <Contact /> */}
         <ContactSection />
       </main>
       <Footer />
