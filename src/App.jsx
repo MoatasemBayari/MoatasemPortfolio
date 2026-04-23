@@ -6,7 +6,7 @@ import hrImg from "./assets/HR.png";
 import travmotImg from "./assets/MotorTravel.png";
 import healImg from "./assets/HealthInsurance.png";
 import lifeImg from "./assets/Life.png";
-
+import ContactSection from "./Contact";
 /* ─────────────────────────────────────────────
    THEME & GLOBAL DATA
 ───────────────────────────────────────────── */
@@ -1638,15 +1638,10 @@ const handleSubmit = (e) => {
       message: form.message,
     },
     "E4cExxnzw10BvfJV1"
-  ).then(
-    () => {
-      setSent(true);
-      setForm({ name: "", email: "", message: "" });
-    },
-    (error) => {
-      console.log("FAILED...", error);
-    }
-  );
+  ).then(() => {
+    setSent(true);
+    setForm({ name: "", email: "", message: "" });
+  });
 };
 
   const inputStyle = {
@@ -1745,146 +1740,72 @@ const handleSubmit = (e) => {
               padding: "36px",
             }}
           >
-            {/* <AnimatePresence mode="wait"> */}
-              {sent ? (
-                <motion.div
-                  key="success"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0 }}
-                  style={{ textAlign: "center", padding: "40px 0" }}
+          <div>
+            {sent ? (
+              <motion.div
+                key="success"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0 }}
+                style={{ textAlign: "center", padding: "40px 0" }}
+              >
+                <div style={{ fontSize: 48, marginBottom: 16 }}>✅</div>
+                <h3 style={{ fontFamily: "'Syne', sans-serif", color: COLORS.success, fontSize: 22 }}>
+                  Message Sent!
+                </h3>
+                <p style={{ color: COLORS.muted }}>
+                  I'll get back to you soon.
+                </p>
+              </motion.div>
+            ) : (
+              <form onSubmit={handleSubmit}>
+                {/* NAME */}
+                <input
+                  type="text"
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  placeholder="Your Name"
+                  style={inputStyle}
+                />
+
+                {/* EMAIL */}
+                <input
+                  type="email"
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  placeholder="your@email.com"
+                  style={inputStyle}
+                />
+
+                {/* MESSAGE */}
+                <textarea
+                  value={form.message}
+                  onChange={(e) => setForm({ ...form, message: e.target.value })}
+                  placeholder="Tell me about your project..."
+                  rows={5}
+                  style={{ ...inputStyle, resize: "vertical" }}
+                />
+
+                <motion.button
+                  type="submit"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  style={{
+                    width: "100%",
+                    padding: "14px",
+                    background: COLORS.accent,
+                    border: "none",
+                    borderRadius: 8,
+                    color: "#000",
+                    fontFamily: "'Space Mono', monospace",
+                    fontWeight: 700,
+                  }}
                 >
-                  <div style={{ fontSize: 48, marginBottom: 16 }}>✅</div>
-                  <h3
-                    style={{
-                      fontFamily: "'Syne', sans-serif",
-                      color: COLORS.success,
-                      fontSize: 22,
-                    }}
-                  >
-                    Message Sent!
-                  </h3>
-                  <p style={{ color: COLORS.muted, fontFamily: "'DM Sans', sans-serif" }}>
-                    I'll get back to you soon.
-                  </p>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit}>
-                {/* <motion.div key="form" initial={{ opacity: 1 }}> */}
-                  <div style={{ marginBottom: 20 }}>
-                    <label
-                      style={{
-                        display: "block",
-                        color: COLORS.muted,
-                        fontSize: 12,
-                        fontFamily: "'Space Mono', monospace",
-                        letterSpacing: 2,
-                        marginBottom: 8,
-                      }}
-                    >
-                      NAME
-                    </label>
-                    <input
-                      type="text"
-                      value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      onFocus={(e) => (e.target.style.borderColor = COLORS.accent)}
-                      onBlur={(e) => (e.target.style.borderColor = COLORS.border)}
-                      placeholder="Your Name"
-                      style={inputStyle}
-                    />
-                  </div>
-                  <div style={{ marginBottom: 20 }}>
-                    <label
-                      style={{
-                        display: "block",
-                        color: COLORS.muted,
-                        fontSize: 12,
-                        fontFamily: "'Space Mono', monospace",
-                        letterSpacing: 2,
-                        marginBottom: 8,
-                      }}
-                    >
-                      EMAIL
-                    </label>
-                    <input
-                      type="email"
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      onFocus={(e) => (e.target.style.borderColor = COLORS.accent)}
-                      onBlur={(e) => (e.target.style.borderColor = COLORS.border)}
-                      placeholder="your@email.com"
-                      style={inputStyle}
-                    />
-                  </div>
-                  <div style={{ marginBottom: 24 }}>
-                    <label
-                      style={{
-                        display: "block",
-                        color: COLORS.muted,
-                        fontSize: 12,
-                        fontFamily: "'Space Mono', monospace",
-                        letterSpacing: 2,
-                        marginBottom: 8,
-                      }}
-                    >
-                      MESSAGE
-                    </label>
-                    <textarea
-                      value={form.message}
-                      onChange={(e) => setForm({ ...form, message: e.target.value })}
-                      onFocus={(e) => (e.target.style.borderColor = COLORS.accent)}
-                      onBlur={(e) => (e.target.style.borderColor = COLORS.border)}
-                      placeholder="Tell me about your project..."
-                      rows={5}
-                      style={{ ...inputStyle, resize: "vertical" }}
-                    />
-                  </div>
-                  {/* <motion.button
-                    onClick={handleSubmit}
-                    whileHover={{ scale: 1.02, boxShadow: `0 0 24px rgba(0,212,255,0.3)` }}
-                    whileTap={{ scale: 0.98 }}
-                    style={{
-                      width: "100%",
-                      padding: "14px",
-                      background: COLORS.accent,
-                      border: "none",
-                      borderRadius: 8,
-                      color: "#000",
-                      fontFamily: "'Space Mono', monospace",
-                      fontWeight: 700,
-                      fontSize: 13,
-                      cursor: "pointer",
-                      letterSpacing: 2,
-                    }}
-                  > */}
-                  <motion.button
-                      type="submit"
-                      whileHover={{ scale: 1.02, boxShadow: `0 0 24px rgba(0,212,255,0.3)` }}
-                      whileTap={{ scale: 0.98 }}
-                      style={{
-                        width: "100%",
-                        padding: "14px",
-                        background: COLORS.accent,
-                        border: "none",
-                        borderRadius: 8,
-                        color: "#000",
-                        fontFamily: "'Space Mono', monospace",
-                        fontWeight: 700,
-                        fontSize: 13,
-                        cursor: "pointer",
-                        letterSpacing: 2,
-                      }}
-                    >
-                      SEND MESSAGE →
-                    </motion.button>
-                    {/* SEND MESSAGE →
-                  </motion.button> */}
-               </form> 
-              //  </motion.div>
-              )}
-            {/* </AnimatePresence> */}
-          </div>
+                  SEND MESSAGE →
+                </motion.button>
+              </form>
+            )}
+          </div>      </div>
         </FadeInSection>
       </div>
     </section>
@@ -1977,6 +1898,7 @@ const ScrollToTop = () => {
 /* ─────────────────────────────────────────────
    APP ROOT
 ───────────────────────────────────────────── */
+export default ContactSection;
 export default function App() {
   return (
     <div
@@ -2015,6 +1937,7 @@ export default function App() {
         <Projects />
         <Experience />
         {/* <Contact /> */}
+        <ContactSection />
       </main>
       <Footer />
       <ScrollToTop />
