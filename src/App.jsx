@@ -8,6 +8,8 @@ import healImg from "./assets/HealthInsurance.png";
 import lifeImg from "./assets/Life.png";
 import salvageImg from "./assets/Salvage.png";
 import workshopImg from "./assets/Workshop.png";
+import profileImg from "./assets/profile.jpg";
+
 // import ContactSection from "./Contact";
 /* ─────────────────────────────────────────────
    THEME & GLOBAL DATA
@@ -644,11 +646,12 @@ const Hero = () => {
             color: COLORS.muted,
             fontSize: 17,
             lineHeight: 1.8,
-            maxWidth: 600,
+            // maxWidth: 600,
             marginBottom: 44,
             fontFamily: "'DM Sans', sans-serif",
-            justifyContent: "center",
-          }}
+            display: "block",
+            display: "flex",
+            }}
         >
         Junior Oracle Application Developer specializing in Oracle APEX and PL/SQL, with hands-on experience building and maintaining enterprise insurance systems including Motor, Health, Travel, and HR modules. Experienced in designing workflows, automating business processes, and developing data-driven web applications using SQL, PL/SQL, HTML, CSS, and JavaScript. Currently working in a production environment delivering scalable solutions and improving system performance through optimization and process digitization..
         </motion.p>
@@ -657,7 +660,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
-          style={{ display: "flex", gap: 16, flexWrap: "wrap" }}
+          style={{ display: "flex", gap: 16, flexWrap: "wrap" ,justifyContent: "center"}}
         >
           <motion.button
             onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
@@ -674,7 +677,6 @@ const Hero = () => {
               fontSize: 13,
               cursor: "pointer",
               letterSpacing: 1,
-              justifyContent: "center",
             }}
           >
             VIEW PROJECTS →
@@ -712,6 +714,7 @@ const Hero = () => {
             paddingTop: 40,
             borderTop: `1px solid ${COLORS.border}`,
             flexWrap: "wrap",
+            justifyContent: "center",
           }}
         >
           {[
@@ -832,7 +835,7 @@ const About = () => (
     >
       <FadeInSection delay={0.1}>
         <div>
-          {/* Avatar placeholder */}
+          {/* Profile photo */}
           <div
             style={{
               width: "100%",
@@ -840,23 +843,29 @@ const About = () => (
               background: COLORS.card,
               borderRadius: 12,
               border: `1px solid ${COLORS.border}`,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 80,
-              marginBottom: 24,
               position: "relative",
               overflow: "hidden",
+              marginBottom: 24,
             }}
           >
+            <img
+              src={profileImg}
+              alt="Moatasem"
+              style={{
+                width: "100%",
+                height: "116%",
+                objectFit: "cover",
+                display: "block",
+              }}
+            />
             <div
               style={{
                 position: "absolute",
                 inset: 0,
                 background: `linear-gradient(135deg, rgba(0,212,255,0.08), rgba(245,166,35,0.06))`,
+                pointerEvents: "none",
               }}
             />
-            👨‍💻
             <div
               style={{
                 position: "absolute",
@@ -882,7 +891,7 @@ const About = () => (
               </p>
             </div>
           </div>
-
+ 
           {/* Quick info */}
           {[
             { icon: "📍", label: "Location", value: "Amman, Jordan" },
@@ -911,7 +920,7 @@ const About = () => (
           ))}
         </div>
       </FadeInSection>
-
+ 
       <FadeInSection delay={0.2}>
         <div>
           <p
@@ -940,7 +949,7 @@ const About = () => (
           >
 What sets me apart is turning complex business workflows into clean, reliable Oracle-based systems. I don’t just write code—I understand how things actually run behind it, whether it’s insurance policies, HR processes, or retail operations. I focus on solid database design, efficient PL/SQL logic, and building scalable solutions in Oracle APEX that actually work in real business environments.
           </p>
-
+ 
           {/* Specialty badges */}
           <div style={{ display: "flex", flexWrap: "wrap", gap: 10 }}>
             {[
