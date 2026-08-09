@@ -6,6 +6,8 @@ import hrImg from "./assets/HR.png";
 import travmotImg from "./assets/MotorTravel.png";
 import healImg from "./assets/HealthInsurance.png";
 import lifeImg from "./assets/Life.png";
+import salvageImg from "./assets/Salvage.png";
+import workshopImg from "./assets/Workshop.png";
 // import ContactSection from "./Contact";
 /* ─────────────────────────────────────────────
    THEME & GLOBAL DATA
@@ -185,7 +187,77 @@ const PROJECTS = [
     status: "Completed",
     image: healImg,
   },
-
+  {
+    id: 5,
+    title: "Salvage Portal ",
+    subtitle: "Oracle APEX Underwriting System",
+    description:
+      "A dynamic health insurance quotation platform built on Oracle APEX. Handles plan selection, eligibility validation, and premium calculations based on customer demographics and medical data.",
+    longDescription:
+      "Developed the full business logic using PL/SQL, including underwriting rules, age-based pricing models, and medical risk factors. Designed optimized database structures and interactive APEX forms to ensure fast, accurate quote generation.",
+    tech: ["Oracle APEX", "PL/SQL", "Oracle DB", "ORDS", "JavaScript"],
+    features: [
+      "Dynamic health plan selection",
+      "Eligibility validation based on age & conditions",
+      "Automated premium calculation engine",
+      "Medical risk assessment rules",
+      "Real-time quote generation",
+      "Agent-friendly data entry interface",
+    ],
+    color: "#3B82F6",
+    github: "#",
+    demo: "#",
+    category: "Oracle APEX",
+    status: "Completed",
+    image: healImg,
+  },{
+  id: 6,
+  title: "Salvage Vehicle Auction Platform",
+  subtitle: "Oracle APEX Salvage & Bidding System",
+  description:
+    "A salvage vehicle auction platform built on Oracle APEX, designed to manage salvage cars, online auctions, user bidding, and the overall vehicle selling process.",
+  longDescription:
+    "Developed a complete salvage vehicle auction workflow that allows users to browse available salvage vehicles, view auction details, place and track bids, and manage their accounts. The platform supports user registration, OTP verification, profile management, and bidding activities.",
+  tech: ["Oracle APEX", "PL/SQL", "Oracle DB", "ORDS", "JavaScript"],
+  features: [
+    "Salvage vehicle listing and auction management",
+    "Auction details and vehicle information",
+    "Online bidding and bid tracking",
+    "User registration and OTP verification",
+    "My Bids and bidding history",
+    "User profile and account management",
+  ],
+  color: "#F59E0B",
+  github: "#",
+  demo: "#",
+  category: "Oracle APEX",
+  status: "Completed",
+  image: salvageImg,
+},
+{
+  id: 7,
+  title: "Insurance Workshop Management Platform",
+  subtitle: "Oracle APEX Repair Workflow System",
+  description:
+    "An Oracle APEX platform designed to streamline the workflow between insurance companies and workshops, from receiving repair orders to completing vehicle repairs and discharge.",
+  longDescription:
+    "Developed a structured repair management workflow connecting insurance operations with workshops. The system manages repair orders, claim and policy information, vehicle details, repair documents, parts, labor, costs, and repair statuses throughout the complete vehicle repair lifecycle.",
+  tech: ["Oracle APEX", "PL/SQL", "Oracle DB", "ORDS", "JavaScript"],
+  features: [
+    "End-to-end repair order workflow",
+    "Claim and policy information management",
+    "Vehicle and insured customer details",
+    "Repair documents and attachments",
+    "Repair parts, labor, quantities, and costs",
+    "Repair status tracking and workshop actions",
+  ],
+  color: "#14B8A6",
+  github: "#",
+  demo: "#",
+  category: "Oracle APEX",
+  status: "Completed",
+  image: workshopImg,
+},
 ];
 
 const EXPERIENCE = [
@@ -575,6 +647,7 @@ const Hero = () => {
             maxWidth: 600,
             marginBottom: 44,
             fontFamily: "'DM Sans', sans-serif",
+            justifyContent: "center",
           }}
         >
         Junior Oracle Application Developer specializing in Oracle APEX and PL/SQL, with hands-on experience building and maintaining enterprise insurance systems including Motor, Health, Travel, and HR modules. Experienced in designing workflows, automating business processes, and developing data-driven web applications using SQL, PL/SQL, HTML, CSS, and JavaScript. Currently working in a production environment delivering scalable solutions and improving system performance through optimization and process digitization..
@@ -601,6 +674,7 @@ const Hero = () => {
               fontSize: 13,
               cursor: "pointer",
               letterSpacing: 1,
+              justifyContent: "center",
             }}
           >
             VIEW PROJECTS →
